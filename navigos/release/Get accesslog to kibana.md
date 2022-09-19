@@ -49,10 +49,10 @@ export PATH="/opt/td-agent/bin/:$PATH"
                     bind 0.0.0.0
                     skip_invalid_event true
                 </source>
-                <system>
-                    # equal to -qq option
-                    #log_level trace
-                </system>  
+<system>
+    # equal to -qq option
+    #log_level trace
+</system>  
  - Add config fix read log
         cd /etc/td-agent/conf.d
         vim vnw.conf [vnw.conf] [ change ip to logcenter ]
@@ -60,7 +60,7 @@ export PATH="/opt/td-agent/bin/:$PATH"
  - Check config file before run
         /opt/td-agent/bin/fluentd --dry-run -c /etc/td-agent/td-agent.conf
  - Run fluentd
-        systemctl restart td-agent  && sleep 10 && tail -f /var/log/td-agent/td-agent.log
+        systemctl restart td-agent  && sleep 3 && tail -f /var/log/td-agent/td-agent.log
         systemctl status td-agent 
 ## Step 2: Install fluentd in logcenter
  - Install fluentd like step 1

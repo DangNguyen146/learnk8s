@@ -28,3 +28,12 @@ lxf.R6s-BICT
     172.16.4.92
 ## Step 2: Edit file python -> Note: ip kibana
 /bin/python3.6 -m pip install elasticsearch==7.17.3
+
+
+cd /data/www/Nagios/
+
+
+
+if( ag == "ingress-nginx"):
+      print (ag)
+      print ("ingress-nginx")

@@ -1,0 +1,205 @@
+{
+    "meta": {
+        "total": 5,
+        "apiVersion": "v1"
+    },
+    "links": {
+        "self": "http:\/\/172.16.4.85:31155\/v2\/jobs\/filter-outstanding"
+    },
+    "data": [
+        {
+            "type": "job",
+            "id": "1375731",
+            "attributes": {
+                "jobId": 1375731,
+                "jobTitle": "DB Master",
+                "companyName": "C\u00f4ng Ty C\u1ed5 Ph\u1ea7n C\u00f4ng Ngh\u1ec7 Mobifone TO\u00c0N C\u1ea7u ( Mobifone GLOBAL) C\u00f4ng Ty C\u1ed5 Ph\u1ea7n C\u00f4ng Ngh\u1ec7 Mobifone TO\u00c0N C\u1ea7u ( Mobifone GLOBAL) Da34",
+                "location": [
+                    29,
+                    17
+                ],
+                "locationNames": [
+                    "Ho Chi Minh",
+                    "Da Nang"
+                ],
+                "bannerLogo": "https:\/\/release-images.vietnamworks.com\/logo\/ilan_113071.jpg",
+                "bannerImage": "https:\/\/release-images.vietnamworks.com\/logo\/banner2_113071.jpg",
+                "prettySalary": "$700 - $1000",
+                "jobUrl": "https:\/\/release.vietnamworks.com\/db-master-27767-1375731-jd?utm_campaign=1330085\u0026utm_source=specialOffers\u0026utm_medium=specialOffers",
+                "alias": "db-master-27767",
+                "categoryIds": [
+                    35,
+                    55
+                ],
+                "bannerCategoryIds": [
+                    35
+                ],
+                "jobLevelId": 5,
+                "salaryMin": 700,
+                "salaryMax": 1000,
+                "isSalaryVisible": true,
+                "salaryRange": 0,
+                "expiredDate": 1664989199,
+                "skills": [
+                    "PHP"
+                ],
+                "jobRequirement": "",
+                "jobDescription": "Analyze system and software requirements",
+                "isAnonymous": 0
+            }
+        },
+        {
+            "type": "job",
+            "id": "1375756",
+            "attributes": {
+                "jobId": 1375756,
+                "jobTitle": "DB Master",
+                "companyName": "C\u00f4ng Ty C\u1ed5 Ph\u1ea7n C\u00f4ng Ngh\u1ec7 Mobifone TO\u00c0N C\u1ea7u ( Mobifone GLOBAL) C\u00f4ng Ty C\u1ed5 Ph\u1ea7n C\u00f4ng Ngh\u1ec7 Mobifone TO\u00c0N C\u1ea7u ( Mobifone GLOBAL) Da34",
+                "location": [
+                    29,
+                    17
+                ],
+                "locationNames": [
+                    "Ho Chi Minh",
+                    "Da Nang"
+                ],
+                "bannerLogo": "https:\/\/release-images.vietnamworks.com\/pictureofcompany\/98\/10974345.png",
+                "bannerImage": "",
+                "prettySalary": "$700 - $1000",
+                "jobUrl": "https:\/\/release.vietnamworks.com\/db-master-27774-1375756-jd?utm_campaign=relevantJobs\u0026utm_source=specialOffers\u0026utm_medium=specialOffers",
+                "alias": "db-master-27774",
+                "categoryIds": [
+                    35,
+                    55
+                ],
+                "bannerCategoryIds": [],
+                "jobLevelId": 5,
+                "salaryMin": 700,
+                "salaryMax": 1000,
+                "isSalaryVisible": true,
+                "salaryRange": 0,
+                "expiredDate": 1664989199,
+                "skills": [
+                    "PHP"
+                ],
+                "jobRequirement": "",
+                "jobDescription": "Analyze system and software requirements",
+                "isAnonymous": 0
+            }
+        },
+        {
+            "type": "job",
+            "id": "1375751",
+            "attributes": {
+                "jobId": 1375751,
+                "jobTitle": "DB Master",
+                "companyName": "C\u00f4ng Ty C\u1ed5 Ph\u1ea7n C\u00f4ng Ngh\u1ec7 Mobifone TO\u00c0N C\u1ea7u ( Mobifone GLOBAL) C\u00f4ng Ty C\u1ed5 Ph\u1ea7n C\u00f4ng Ngh\u1ec7 Mobifone TO\u00c0N C\u1ea7u ( Mobifone GLOBAL) Da34",
+                "location": [
+                    29,
+                    17
+                ],
+                "locationNames": [
+                    "Ho Chi Minh",
+                    "Da Nang"
+                ],
+                "bannerLogo": "https:\/\/release-images.vietnamworks.com\/pictureofcompany\/98\/10974345.png",
+                "bannerImage": "",
+                "prettySalary": "$700 - $1000",
+                "jobUrl": "https:\/\/release.vietnamworks.com\/db-master-27772-1375751-jd?utm_campaign=relevantJobs\u0026utm_source=specialOffers\u0026utm_medium=specialOffers",
+                "alias": "db-master-27772",
+                "categoryIds": [
+                    35,
+                    55
+                ],
+                "bannerCategoryIds": [],
+                "jobLevelId": 5,
+                "salaryMin": 700,
+                "salaryMax": 1000,
+                "isSalaryVisible": true,
+                "salaryRange": 0,
+                "expiredDate": 1664989199,
+                "skills": [
+                    "PHP"
+                ],
+                "jobRequirement": "",
+                "jobDescription": "Analyze system and software requirements",
+                "isAnonymous": 0
+            }
+        },
+        {
+            "type": "job",
+            "id": "1375746",
+            "attributes": {
+                "jobId": 1375746,
+                "jobTitle": "DB Master",
+                "companyName": "C\u00f4ng Ty C\u1ed5 Ph\u1ea7n C\u00f4ng Ngh\u1ec7 Mobifone TO\u00c0N C\u1ea7u ( Mobifone GLOBAL) C\u00f4ng Ty C\u1ed5 Ph\u1ea7n C\u00f4ng Ngh\u1ec7 Mobifone TO\u00c0N C\u1ea7u ( Mobifone GLOBAL) Da34",
+                "location": [
+                    29,
+                    17
+                ],
+                "locationNames": [
+                    "Ho Chi Minh",
+                    "Da Nang"
+                ],
+                "bannerLogo": "https:\/\/release-images.vietnamworks.com\/pictureofcompany\/98\/10974345.png",
+                "bannerImage": "https:\/\/release-images.vietnamworks.com\/company_profile\/77009.jpg",
+                "prettySalary": "$700 - $1000",
+                "jobUrl": "https:\/\/release.vietnamworks.com\/db-master-27769-1375746-jd?utm_campaign=relevantJobs\u0026utm_source=specialOffers\u0026utm_medium=specialOffers",
+                "alias": "db-master-27769",
+                "categoryIds": [
+                    35,
+                    55
+                ],
+                "bannerCategoryIds": [],
+                "jobLevelId": 5,
+                "salaryMin": 700,
+                "salaryMax": 1000,
+                "isSalaryVisible": true,
+                "salaryRange": 0,
+                "expiredDate": 1664989199,
+                "skills": [
+                    "PHP"
+                ],
+                "jobRequirement": "",
+                "jobDescription": "Analyze system and software requirements",
+                "isAnonymous": 0
+            }
+        },
+        {
+            "type": "job",
+            "id": "1372333",
+            "attributes": {
+                "jobId": 1372333,
+                "jobTitle": "Copywriter",
+                "companyName": "Cong Ty Re Em1",
+                "location": [
+                    29
+                ],
+                "locationNames": [
+                    "Ho Chi Minh"
+                ],
+                "bannerLogo": "https:\/\/release-images.vietnamworks.com\/pictureofcompany\/bd\/10973860.png",
+                "bannerImage": "",
+                "prettySalary": "$1000 - $3000",
+                "jobUrl": "https:\/\/release.vietnamworks.com\/copywriter-81-1-1372333-jd?utm_campaign=relevantJobs\u0026utm_source=specialOffers\u0026utm_medium=specialOffers",
+                "alias": "copywriter-81-1",
+                "categoryIds": [
+                    59
+                ],
+                "bannerCategoryIds": [],
+                "jobLevelId": 5,
+                "salaryMin": 1000,
+                "salaryMax": 3000,
+                "isSalaryVisible": true,
+                "salaryRange": 0,
+                "expiredDate": 1663347599,
+                "skills": [
+                    "English Education"
+                ],
+                "jobRequirement": "",
+                "jobDescription": "ffdfdf",
+                "isAnonymous": 0
+            }
+        }
+    ]
+}%  
