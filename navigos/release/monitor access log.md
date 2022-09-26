@@ -1,4 +1,4 @@
-### Hot to do it?
+### How to do it?
 Env: staging+ release
 Copy script from nagios production: 
 

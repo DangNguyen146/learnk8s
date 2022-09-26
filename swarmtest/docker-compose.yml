@@ -25,7 +25,7 @@ services:
       - vol1:/d1/
       - vol2:/d2/
     ports:
-      - 8085:8085
+      - 8086:8085
     
     deploy:
       replicas: 5
@@ -47,7 +47,7 @@ services:
       - vol1:/d1/
       - vol2:/d2/
     ports:
-      - 8086:8085
+      - 8087:8085
     
     deploy:
       replicas: 5
@@ -81,6 +81,6 @@ volumes:
     name: v2
     driver_opts:
       type: cifs
-      device: //192.168.63.113/data
+      device: //192.168.63.100/data
       o: "username=smbuser,password=1234567,file_mode=0777,dir_mode=0777"
   

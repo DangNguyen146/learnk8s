@@ -1,0 +1,17 @@
+jenkins@45859caf6986:/data/www/cron_script/scripts/script/jenkins_notification$ python3 jenkins_cron.py
+miliseconds_checkpoint: 1663747417562.5242
+2022-09-21 08:03:37.562
+Traceback (most recent call last):
+  File "jenkins_cron.py", line 135, in <module>
+    get_job_status()
+  File "jenkins_cron.py", line 126, in get_job_status
+    data = response.json()
+  File "/var/jenkins_home/.local/lib/python3.5/site-packages/requests/models.py", line 900, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
