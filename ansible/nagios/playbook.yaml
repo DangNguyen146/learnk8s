@@ -1,0 +1,26 @@
+- hosts: "{{ env_name }}"
+  become: yes
+  tasks:
+    - name: Copy file test
+      copy:
+        src: template/lsof_thread.sh
+        dest: /usr/lib64/nagios/plugins/lsof_thread.sh
+        mode: +x
+
+    - name: remove old nrpe command
+      ansible.builtin.lineinfile:
+        path: /etc/nagios/nrpe.cfg
+        state: absent
+        regexp: '^.*check_lsof'
+
+    - name: Add nrpe commmand
+      ansible.builtin.lineinfile:
+        path: /etc/nrpe.d/command.cfg
+        regexp: '^.*check_lsof'
+        line: command[check_lsof]=/usr/lib64/nagios/plugins/lsof_thread.sh
+        create: yes
+
+    - name: Reload service nrpe
+      ansible.builtin.service:
+        name: nrpe
+        state: reloaded

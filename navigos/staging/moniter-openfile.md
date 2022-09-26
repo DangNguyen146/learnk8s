@@ -47,7 +47,7 @@ do
     fi
 done
 curl_ratio=`echo "scale=10;$COUT_ALL_THRESHOLD*100/$global_max"|bc`
-echo "Ratio PID open file is: $curl_ratio%, Total PID open file is: $COUT_ALL_THRESHOLD | all_ratio_threshold=$curl_ratio;;; all_threshold=$COUT_ALL_THRESHOLD;$WARN_THRESHOLD;$CRITICAL_THRESHOLD;" >> /usr/lib64/nagios/plugins/lsof.log;
+echo "Ratio PID open file is: $curl_ratio%, Total PID open file is: $COUT_ALL_THRESHOLD | all_ratio_threshold=$curl_ratio;;; all_threshold=$COUT_ALL_THRESHOLD;;;" >> /usr/lib64/nagios/plugins/lsof.log;
 if [ "$COUT_ALL_THRESHOLD" -gt "$WARN_THRESHOLD" ]; then
     if [ "$COUT_ALL_THRESHOLD" -gt "$CRITICAL_THRESHOLD" ]; then
         CHECK_LSOF=2
@@ -106,8 +106,7 @@ done
 command[check_lsof]=/usr/lib64/nagios/plugins/lsof_thread.sh
 lsof.sh
 
-rm -rf Openfile.rrd
-rm -rf Openfile.xml
+rm -rf Openfile*.rrd
 
 >lsof.sh
 vim lsof.sh
@@ -164,36 +163,39 @@ global_cur=$(cat /proc/sys/fs/file-nr 2>&1 |cut -f 1)
 cd /usr/local/pnp4nagios/var/perfdata
 
 
-cd staging-rancherbe01
-rm -rf Openfile.rrd
-rm -rf Openfile.xml
+cd Release_rancherscale03
+rm -rf Openfile*.rrd
 cd ../
 
-cd staging-rancherbe02/
-rm -rf Openfile.rrd
-rm -rf Openfile.xml
-
+cd Release_rancherscale02
+rm -rf Openfile*.rrd
 cd ../
-cd staging-rancherscale01
-rm -rf Openfile.rrd
-rm -rf Openfile.xml
-cd ../staging-rancherscale02
 
-rm -rf Openfile.rrd
-rm -rf Openfile.xml
-cd ../staging-rancherscale03
+cd Release_rancherscale01
+rm -rf Openfile*.rrd
+cd ../
 
-rm -rf Openfile.rrd
-rm -rf Openfile.xml
-cd ../vStaging-Rancher01
+cd Release_rancherms05
+rm -rf Openfile*.rrd
+cd ../
 
-rm -rf Openfile.rrd
-rm -rf Openfile.xml
-cd ../vStaging-Rancher02 
+cd Release_rancherms04
+rm -rf Openfile*.rrd
+cd ../
 
-rm -rf Openfile.rrd
-rm -rf Openfile.xml
-cd ../vStaging-Rancher03
+cd Release_rancherms03
+rm -rf Openfile*.rrd
+cd ../
 
-rm -rf Openfile.rrd
-rm -rf Openfile.xml
+cd Release_rancherms02
+rm -rf Openfile*.rrd
+cd ../
+
+cd Release_rancherbe02
+rm -rf Openfile*.rrd
+cd ../
+
+cd Release_rancherbe01
+rm -rf Openfile*.rrd
+cd ../
+
