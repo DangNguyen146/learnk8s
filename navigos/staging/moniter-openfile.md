@@ -1,5 +1,7 @@
 [see more][https://lzone.de/blog/Nagios-Check-Plugin-for-nofile-Limit]
 
+In release
+/opt/nagiosgraph/var/rrd
 
 
 for all rancher nodes
@@ -191,6 +193,11 @@ cd Release_rancherms02
 rm -rf Openfile*.rrd
 cd ../
 
+cd Release_rancherms01
+rm -rf Openfile*.rrd
+cd ../
+
+
 cd Release_rancherbe02
 rm -rf Openfile*.rrd
 cd ../
@@ -199,3 +206,37 @@ cd Release_rancherbe01
 rm -rf Openfile*.rrd
 cd ../
 
+
+
+
+cd staging-rancherbe01
+rm -rf Openfile*.rrd
+cd ../
+
+cd staging-rancherbe02
+rm -rf Openfile*.rrd
+cd ../
+
+cd staging-rancherscale01
+rm -rf Openfile*.rrd
+cd ../
+
+cd staging-rancherscale02
+rm -rf Openfile*.rrd
+cd ../
+
+cd staging-rancherscale03
+rm -rf Openfile*.rrd
+cd ../
+
+cd vStaging-Rancher01
+rm -rf Openfile*.rrd
+cd ../
+
+cd vStaging-Rancher02
+rm -rf Openfile*.rrd
+cd ../
+
+cd vStaging-Rancher03
+rm -rf Openfile*.rrd
+cd ../

@@ -1,0 +1,13 @@
+
+
+
+ansible-playbook playbook.yaml -i hosts -e env_name=rancher_release -e remote_user=ngosadm --ssh-common-args="-o StrictHostKeyChecking=no"
+
+
+ansible-playbook playbook.yaml  -e env_name=rancher_release 
+
+ansible-playbook playbook.yaml  -e env_name=all 
+
+
+ansible-playbook playbook.yaml  -e env_name=rancher_81 
+

@@ -10,4 +10,3 @@ if [[ $result -eq 0  ]]; then
 fi
 echo "no result"
 exit $EXIT_CODE_RESULT
-#test

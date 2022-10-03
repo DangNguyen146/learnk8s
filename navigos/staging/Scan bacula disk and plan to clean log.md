@@ -20,3 +20,4 @@ show file in folder [bakula_disk_plan_clean_log]
 will kich thước floder
 
 du -sh * | grep "G\|T"
+df

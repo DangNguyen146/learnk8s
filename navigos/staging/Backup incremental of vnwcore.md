@@ -1,8 +1,8 @@
-+ staging: http://staging-jenkins.vietnamworks.com/job/VNW-Staging/job/pipeline/job/Schedule/job/backup-incremental-mysql-db2-daily/
++ staging: http://staging-jenkins.vietnamworks.com/job/VNW-Staging/job/pipeline/job/Schedule/job/backup-incremental-mysql-db1-daily/
 
  
 
-+ release: https://release-jenkins.vietnamworks.com/job/Releases/job/pipeline/job/Schedule/job/backup-incremental-mysql-db2-daily/configure
++ release: https://release-jenkins.vietnamworks.com/job/Releases/job/pipeline/job/Schedule/job/backup-incremental-mysql-db1-daily/configure
 
 - view floder [backup-incremental-mysql-db2-daily]
 
