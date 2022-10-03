@@ -5,24 +5,26 @@ staging-msdb.vnw        A       172.16.5.113
 
 
 
-1. dwhdb
+1. dwhdb        
 # release
     read: salary_readonly:P6xKVjaHMfwp9@tcp(172.16.4.113:33306)/dwhdb?readTimeout=10s&timeout=20s
     write: salary_readonly:P6xKVjaHMfwp9@tcp(172.16.4.113:33306)/dwhdb?readTimeout=10s&timeout=20s
-# staging
+# staging               ############## complete
     read: salary_readonly:P6xKVjaHMfwp9@tcp(172.16.4.21:33306)/dwhdb?readTimeout=10s&timeout=20s
     write: salary_readonly:P6xKVjaHMfwp9@tcp(172.16.4.21:33306)/dwhdb?readTimeout=10s&timeout=20s
-    
+
 [root@vDev-Web02 /]# docker exec -it b14ee4d9fdf3 bash
 root@b14ee4d9fdf3:/# ls
 backup_dwhdb_2020_09_24.sql  boot  docker-entrypoint-initdb.d  dwhdb_2021_03_11.sql  etc   ip2location.sql  lib64  mnt	proc  run   srv  tmp  var
 bin			     dev   dwhdb.staging.20201008.sql  entrypoint.sh	     home  lib		    media  opt	root  sbin  sys  usr
  
 
-2. ip2location
+ sudo docker exec -i b14ee4d9fdf3 bash -c "mysqldump -udatateam -pTuYAZobqSrmY0NLVeLTc --databases dwhdb > backup_full_dwhdb_test.sql"
+
+2. ip2location ############## complete
 
 
-
+# staging           ############## complete
 
 3. smart_interview
  

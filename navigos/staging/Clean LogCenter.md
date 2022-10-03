@@ -30,5 +30,7 @@ su ngosadm
 chmod go-w ~/
 mkdir  ~/.ssh
 chmod 700 ~/.ssh
-echo "" >> ~/.ssh/authorized_keys
+echo "sh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCz4oo6RP7CQKsB/EhF/Bvdd1+2W7srxHHmiD5UTz9NHpfmQyv9b6twIncnf6KBavXx1Ua7pRlMSuPqhtETNPRv95efOn8OK7+S0HjguFX9Oj45T3rwONPrLVDacDpTxVxd3PDocv4OUG98+0qV3d7KG3qToQDzV6EdCWnObYfM2TO4XU5v7h083dwmhCpgj1P5E1LIreOSRLjE0QRNUd9WYNXbjVlZHXGoXl0JI5p+KeSD4Bkic/V1xX/cOfwxI7mxkYxVqDFl+SVsYTAMtUv1Z3Sez1exOpwArnzR1Vrmf6cLFrKFpyDp8ydLqaG9cRueQeUHfN/8yFf1jOTPOBLT root@d2ca9f27434c" >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
+
+<img src="./img/hing1.img"/>
