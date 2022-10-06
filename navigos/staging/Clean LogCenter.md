@@ -18,7 +18,7 @@ echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhIGg5HIA62ssGZKxlvdE7trhOsvU3uGiHhz
 
 echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDmfBnAFirE0YrxbiDxIva7jMS1jAOdKKU7f3BZJLqPCf52apFxBxFPZeKV04XzWjisMX1lBJ5ZJF6IQM490nUY7Li0jhZZSG8lh6akJu51Uzb2nakg/ZvLakCN1QE6XmDt9SaZqDOC7wKPjhHtUKo1qHTNrHLrbZbUlOtJwMOJ64moVqe8pnuKa0VroXctGkzB45KY0geSO0B9lsRzHF2v9cnQF/xEcJPXL37j4UQaa+gqJvNEid+AwOmkn73zKqs4bGFO5VKgQnoIXNnP97Wo8BX4qKLOwf8d3+AubWoZ8nvVAMJzNPFyh41jj9C0XqBkYWfVKWR0yI+C+f0eQhh/ jenkins@bb57e9ae77dd' >> /home/ngosadm/.ssh/authorized_keys
 
-
+![](../img/2022-10-03-17-44-03.png)
 
 add user
 visudo
@@ -32,5 +32,3 @@ mkdir  ~/.ssh
 chmod 700 ~/.ssh
 echo "sh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCz4oo6RP7CQKsB/EhF/Bvdd1+2W7srxHHmiD5UTz9NHpfmQyv9b6twIncnf6KBavXx1Ua7pRlMSuPqhtETNPRv95efOn8OK7+S0HjguFX9Oj45T3rwONPrLVDacDpTxVxd3PDocv4OUG98+0qV3d7KG3qToQDzV6EdCWnObYfM2TO4XU5v7h083dwmhCpgj1P5E1LIreOSRLjE0QRNUd9WYNXbjVlZHXGoXl0JI5p+KeSD4Bkic/V1xX/cOfwxI7mxkYxVqDFl+SVsYTAMtUv1Z3Sez1exOpwArnzR1Vrmf6cLFrKFpyDp8ydLqaG9cRueQeUHfN/8yFf1jOTPOBLT root@d2ca9f27434c" >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
-
-<img src="./img/hing1.img"/>

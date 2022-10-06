@@ -6,7 +6,7 @@ staging-msdb.vnw        A       172.16.5.113
 
 
 1. dwhdb        
-# release
+# release ############# complete
     read: salary_readonly:P6xKVjaHMfwp9@tcp(172.16.4.113:33306)/dwhdb?readTimeout=10s&timeout=20s
     write: salary_readonly:P6xKVjaHMfwp9@tcp(172.16.4.113:33306)/dwhdb?readTimeout=10s&timeout=20s
 # staging               ############## complete
@@ -23,17 +23,17 @@ bin			     dev   dwhdb.staging.20201008.sql  entrypoint.sh	     home  lib		    m
 
 2. ip2location ############## complete
 
-
+# release ############## complete
 # staging           ############## complete
 
 3. smart_interview
  
-# release
+# release ############## complete
     database_interview_host: 172.16.4.113
     database_interview_port: 33306
     database_interview_name: smart_interview
  
-# staging
+# staging  ############## complete
     database_interview_host: 172.16.4.27
     database_interview_port: 3306
     database_interview_name: vnw_crawler
@@ -41,15 +41,15 @@ bin			     dev   dwhdb.staging.20201008.sql  entrypoint.sh	     home  lib		    m
 
 
 4. vnw_api_oauth
-# release
+# release ############## complete
 MYSQL_API_OAUTH_HOST=172.16.4.113
 MYSQL_API_OAUTH_PORT=33306
 MYSQL_API_OAUTH_DATABASE_NAME=vnw_api_oauth
 MYSQL_API_OAUTH_USER=micro_api
 MYSQL_API_OAUTH_PASSWORD=mgxERXMtwnXcHWJuAFuTupRY
  
-# staging
-MYSQL_API_OAUTH_HOST=staging-msdb.vnw
+# staging  ############## complete
+MYSQL_API_OAUTH_HOST=172.16.5.113
 MYSQL_API_OAUTH_PORT=3306
 MYSQL_API_OAUTH_DATABASE_NAME=vnw_api_oauth
 MYSQL_API_OAUTH_USER=micro_docker
@@ -58,14 +58,14 @@ MYSQL_API_OAUTH_PASSWORD=fSsmhnvGFVDFLSgRgH
 
 
 4. vnworks_sims
-# release
+# release ############## complete
 MYSQL_SIMS_HOST=172.16.4.27
 MYSQL_SIMS_PORT=3306
 MYSQL_SIMS_DATABASE_NAME=vnworks_sims
 MYSQL_SIMS_USER=phongle
 MYSQL_SIMS_PASSWORD=FqxwA9jrcU5sdwh935AK
  
-# staging
+# staging  ############## complete
 MYSQL_SIMS_HOST=172.16.4.27
 MYSQL_SIMS_PORT=3306
 MYSQL_SIMS_DATABASE_NAME=vnworks_sims
@@ -75,10 +75,10 @@ MYSQL_SIMS_PASSWORD=AAcES4MncngYApuWcK
 
 5. backup_full_vnw_click
  
-# release
+# release ############# complete
     slave: vnw_docker:Hg6a7sEbU2prgZ6vbbXUHxM6@tcp(172.16.4.113:3306)/vnw_click?readTimeout=10s&timeout=20s
     core: vnw_docker:Hg6a7sEbU2prgZ6vbbXUHxM6@tcp(172.16.4.111:3306)/vnw_core?readTimeout=10s&timeout=20s
-# staging:
+# staging: ############# complete
     slave: company_read:sWXdQrtD3VCrSMfn@tcp(staging-msdb.vnw:3306)/vnw_click?readTimeout=10s&timeout=20s
     core: company_read:sWXdQrtD3VCrSMfn@tcp(staging-slavedb.vnw:3306)/vnw_core?readTimeout=10s&timeout=20s
     172.16.5.113 staging-msdb.vnw
@@ -92,7 +92,7 @@ MYSQL_SIMS_PASSWORD=AAcES4MncngYApuWcK
 # release
     navi_cms: navi_read:kuWPXTTdGEmAFZ8@tcp(172.16.4.113:3306)/navi_cms?readTimeout=10s&timeout=20s
  
-# staging
+# staging ############# complete
     navi_cms: stag_banner:Ga~3ctCh@tcp(staging-msdb.vnw:3306)/navi_cms?readTimeout=10s&timeout=20s
     172.16.5.113 staging-msdb.vnw
 
