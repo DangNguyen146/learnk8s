@@ -286,3 +286,5 @@ f49b84394def   release-registry.vietnamworks.com/vnw/centos7-mysql51-v1   "/entr
 in sever backup
 
         cat /etc/rsyncd.conf 
+
+    backup_incremental_of_vnwcore
