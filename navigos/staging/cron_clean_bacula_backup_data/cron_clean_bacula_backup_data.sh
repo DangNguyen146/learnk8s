@@ -28,19 +28,26 @@ clean_log_folder ( ) {
         echo "------->None file create in $clean_time day"
     fi
 }
+# logrotate
+clean_log "/online_backup/vstagingdb02/mysql_backup/weekly/" "*" 60
+clean_log "/online_backup/vstagingdb02/mysql_backup/daily" "*" 30
+
+# 
 clean_log "/online_backup/jira/backups" "jira-data*.gz" 60
 clean_log "/online_backup/jira/backups" "jira-export*.gz" 60
 clean_log "/online_backup/vdb04/mysql_backup/full" "backup_full_database_*" 60
 clean_log "/online_backup/vnw_db/db01" "mysql-bin.*" 90
-clean_log "/online_backup/vrsdb02/mysql_backup/full" "postgres_bannerbooking_production*.gz" 60
-clean_log "/online_backup/vrsdb02/mysql_backup/full" "backup_full_vnw_api_oauth*.gz" 60
-clean_log "/online_backup/vrsdb02/mysql_backup/full" "backup_full_hr_onboard*.gz" 60
-clean_log "/online_backup/vrsdb02/mysql_backup/full" "backup_full_smart_interview*.gz" 60
-clean_log "/online_backup/vrsdb02/mysql_backup/full" "backup_full_vnw_click*.gz" 60
-clean_log "/online_backup/vrsdb02/mysql_backup/full" "backup_full_navi_cms*.gz" 60
-clean_log "/online_backup/vrsdb02/mysql_backup/full" "backup_full_vnworks_sims*.gz" 60
-clean_log "/online_backup/vrsdb02/mysql_backup/full" "backup_full_ip2location*.gz" 60
-clean_log "/online_backup/vrsdb02/mysql_backup/full" "backup_full_dwhdb*.gz" 60
+
+clean_log "/online_backup/microdb/mysql_backup/full" "postgres_bannerbooking_production*.gz" 60
+clean_log "/online_backup/microdb/mysql_backup/full" "backup_full_vnw_api_oauth*.gz" 60
+clean_log "/online_backup/microdb/mysql_backup/full" "backup_full_hr_onboard*.gz" 60
+clean_log "/online_backup/microdb/mysql_backup/full" "backup_full_smart_interview*.gz" 60
+clean_log "/online_backup/microdb/mysql_backup/full" "backup_full_vnw_click*.gz" 60
+clean_log "/online_backup/microdb/mysql_backup/full" "backup_full_navi_cms*.gz" 60
+clean_log "/online_backup/microdb/mysql_backup/full" "backup_full_vnworks_sims*.gz" 60
+clean_log "/online_backup/microdb/mysql_backup/full" "backup_full_ip2location*.gz" 60
+clean_log "/online_backup/microdb/mysql_backup/full" "backup_full_dwhdb*.gz" 60
+
 clean_log_folder "/online_backup/mongo_smartnavi/backup_full" "mongodump*" 90
 clean_log_folder "/online_backup/mongo_smartnavi/backup_incremental" "*" 90
 

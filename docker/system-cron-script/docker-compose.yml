@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  app:
+    image: release-registry.vietnamworks.com/vnw/python_cron:alpine3.15_v1
+    con tainer_name: system-cron
+    volumes:
+      - /data/apps/system-cron:/data/apps/system-cron

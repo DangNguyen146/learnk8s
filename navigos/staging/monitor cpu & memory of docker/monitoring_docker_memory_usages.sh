@@ -1,11 +1,6 @@
 DIR="/data/apps/system-cron/system-cron-script"
-DIR_DATA='/data/apps/system-cron/system-cron-script/monitoring/docker'
+DIR_DATA='/data/apps/system-cron/system-cron-script/monitoring/docker/staging'
 sudo /bin/bash -c "cd $DIR;git pull origin master"
-
-
-
-
-
 
 # 1 minute
 schedule_interval=60

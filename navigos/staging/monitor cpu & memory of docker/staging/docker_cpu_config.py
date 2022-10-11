@@ -1,0 +1,1 @@
+mute_alert_service = ["rabbitmq","job-sync-golang-job-view"]
