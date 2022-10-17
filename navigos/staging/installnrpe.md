@@ -14,6 +14,7 @@ command[check_disk_data]=/usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p /
 command[check_disk_root]=/usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p /
 command[check_swap]=/usr/lib64/nagios/plugins/check_swap -w 20 -c 10
 command[check_memory]=/usr/lib64/nagios/plugins/pmp-check-unix-memory -w 95 -c 99 -d
+command[check_users]=/usr/lib64/nagios/plugins/main.py
 
 yum install vim
 
