@@ -1,7 +1,4 @@
-# staging-es-log.vietnamworks.com
-
-event_account_v1-*   
-event_acl_tracking-*
+# staging-es-log.vietnamworks.com  event_account_v1-*    event_acl_tracking-*
 event_ats_tracking-*
 event_editjob_v1-*
 event_hotkeywords_v1-*		
@@ -24,4 +21,14 @@ curl -H "Content-Type: application/json" -XPOST "localhost:9200/_aliases" -d '{
     ]
 }'
 
-event_account_v1-all event_acl_tracking-all event_ats_tracking-all event_editjob_v1-all event_hotkeywords_v1-all
+
+
+curl -H "Content-Type: application/json" -XPOST "172.16.4.183:31427/_aliases" -d '{
+    "actions" : [
+        { "add" : { "index" : "event_acl_tracking-*", "alias" : "event_acl_tracking-all" } }
+    ]
+}'
+
+  event_hotkeywords_v1-all
+
+event_account_v1-all  event_editjob_v1-all event_acl_tracking-all event_ats_tracking-all event_hotkeywords_v1-all
