@@ -1,9 +1,0 @@
-requests
-query-string
-urllib3
-pymysql==1.0.2
-elasticsearch==6.8.2
-kafka-python==1.4.6
-python-dotenv==0.19.1
-redis==3.5.3
-pytz

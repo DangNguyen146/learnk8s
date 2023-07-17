@@ -1,2 +1,0 @@
-release_kuber_healthcheck_off= ["job-sync-nodeport","micro-navi-cms-nodeport","release-vnw-nodeport","release-vnw-nodeport", "NAMESPACE", "kube-system", "cattle-prometheus", "cattle-system", "security-scan", "default-token", "ingress-nginx", "istio-system"]
-print ("istio-system" not in release_kuber_healthcheck_off)

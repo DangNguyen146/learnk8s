@@ -1,1 +1,0 @@
-mute_alert_jobs = ["MKT_export-job-to-json","cron_crm_aws","sync-company-followers"]
