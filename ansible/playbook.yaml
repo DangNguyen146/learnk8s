@@ -1,16 +1,96 @@
 - name: Install k8s
-  hosts: your_target_hosts
+  hosts: all
   become: true
   tasks:
-    - name: Add Kubernetes repository configuration
-      lineinfile:
-        path: /etc/yum.repos.d/kubernetes.repo
-        line: |
-          [kubernetes]
-          name=Kubernetes
-          baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-          enabled=1
-          gpgcheck=1
-          repo_gpgcheck=1
-          gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      changed_when: false
+
+    - name: Install required packages
+      apt:
+        name: "{{ item }}"
         state: present
+      with_items:
+        - apt-transport-https
+        - curl
+        - ca-certificates
+        - software-properties-common
+
+    - name: Add Docker GPG key
+      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+      changed_when: false
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+      changed_when: false
+
+    - name: Install Docker
+      apt:
+        name: docker-ce
+        state: present
+      changed_when: false
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+      changed_when: false
+
+    - name: Configure containerd
+      file:
+        path: /etc/containerd/config.toml
+        state: touch
+      changed_when: false
+
+    - name: Set SystemdCgroup to true in containerd config
+      lineinfile:
+        path: /etc/containerd/config.toml
+        line: "SystemdCgroup = true"
+      changed_when: false
+
+    - name: Restart containerd service
+      service:
+        name: containerd
+        state: restarted
+        enabled: yes
+      changed_when: false
+
+    - name: Add Kubernetes GPG key
+      shell: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+      changed_when: false
+
+    - name: Add Kubernetes repository
+      apt_repository:
+        repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+        state: present
+      changed_when: false
+
+    - name: Install Kubernetes packages
+      apt:
+        name:
+          - kubeadm
+          - kubelet
+          - kubectl
+          - kubernetes-cni
+        state: present
+      changed_when: false
+
+    - name: Disable swap
+      command: swapoff -a
+      ignore_errors: true
+      changed_when: false
+
+    - name: Update sysctl settings
+      sysctl:
+        name: "{{ item }}"
+        value: "1"
+        sysctl_set: yes
+        state: present
+      with_items:
+        - net.bridge.bridge-nf-call-ip6tables
+        - net.bridge.bridge-nf-call-iptables
+      changed_when: false
