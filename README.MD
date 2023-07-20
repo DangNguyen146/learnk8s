@@ -3,3 +3,4 @@
 2. Using Ansible to install k8s
 3. Start project webapp + mongo db
 4. Create slave data streaming postgresql
+5. 
