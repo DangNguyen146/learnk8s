@@ -1,4 +1,4 @@
-- name: Install k8s
+- name: Install k8s v2
   hosts: all
   become: true
   tasks:
@@ -46,10 +46,10 @@
         state: touch
       changed_when: false
 
-    - name: Set SystemdCgroup to true in containerd config
+    - name: Set SystemdCgroup to false in containerd config
       lineinfile:
         path: /etc/containerd/config.toml
-        line: "SystemdCgroup = true"
+        line: "SystemdCgroup = false"
       changed_when: false
 
     - name: Restart containerd service

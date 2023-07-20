@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
 
   # Cài đặt box cho máy ảo
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "ubuntu/focal64"
 
   # Cấu hình cho máy ảo 192.168.144.10
   config.vm.define "machine1" do |machine1|
