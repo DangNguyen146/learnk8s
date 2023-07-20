@@ -1,0 +1,6 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/helmfile.json": "file:///d%3A/Develop/devops/webappandmongodb/mongo-config.yaml",
+        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook": "file:///d%3A/Develop/devops/kubespray/playbooks/cluster.yml"
+    }
+}
