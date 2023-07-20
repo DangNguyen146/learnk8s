@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Thiết lập tên người dùng và mật khẩu
-USERNAME="ubuntu1"
-PASSWORD="ubuntu1"
+USERNAME=""
+PASSWORD=""
 
 # Tạo người dùng
 useradd -m -s /bin/bash $USERNAME
