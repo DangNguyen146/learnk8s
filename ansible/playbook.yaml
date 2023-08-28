@@ -1,4 +1,4 @@
-- name: Install k8s v2
+- name: Install k8s v3
   hosts: all
   become: true
   tasks:

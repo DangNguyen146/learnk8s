@@ -31,14 +31,14 @@ spec:
               key: mongo-user
         - name: USER_PWD
           valueFrom:
-          secretKeyRef:
-              name: mongo-secret
-              key: mongo-user
+            secretKeyRef:
+                name: mongo-secret
+                key: mongo-user
         - name: DB_URL
           valueFrom:
-          secretKeyRef:
-              name: mongo-config
-              key: mongo-url
+            secretKeyRef:
+                name: mongo-config
+                key: mongo-url
 ---
 apiVersion: v1
 kind: Service

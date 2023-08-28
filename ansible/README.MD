@@ -12,8 +12,8 @@
 
 ## Start k8s
 
-    sudo kubeadm config images pull
     kubeadm init --apiserver-advertise-address=192.168.144.10 --pod-network-cidr=192.168.0.0/16
+    sudo kubeadm config images pull
 
 ## Install k9s
 
