@@ -3,4 +3,9 @@
 2. Using Ansible to install k8s
 3. Start project webapp + mongo db
 4. Create slave data streaming postgresql
-5. 
+5. Test k8s
+
+    <img src="./img/testk8s.jpg" />
+
+6. PostgreSQL
+7. Space Web app
