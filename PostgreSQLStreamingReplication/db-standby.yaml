@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-standby
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-standby
+  template:
+    metadata:
+      labels:
+        type: db-standby
+        app: db-standby
+    spec:
+      containers:
+      - image: postgres:10
+        imagePullPolicy: IfNotPresent
+        name: db-standby
+        ports:
+          - containerPort: 5432
+        envFrom:
+          - configMapRef:
+              name: db-config
+        volumeMounts:
+          - name: db-standby-mnt
+            mountPath: /var/lib/postgresql/data
+            subPath: db_standby/data
+      volumes:
+      - name: db-standby-mnt
+        persistentVolumeClaim:
+          # use nfs for dev and nfs-standby for prod  
+          #claimName: nfs
+          claimName: nfs-standby
+      - name: db-standby-config-mnt
+        configMap:
+          name: db-standby-conf-files-config
+      initContainers:
+      - name: init-db-standby
+        image: timescale/timescaledb:latest-pg10
+        command: ['sh', '-c', 'cp /var/lib/postgresql/data/postgresql.main.conf /var/lib/postgresql/data/postgresql.conf && cp /var/lib/postgresql/data/recovery.main.conf /var/lib/postgresql/data/recovery.conf && chmod 600 /var/lib/postgresql/data/postgresql.conf && chmod 600 /var/lib/postgresql/data/recovery.conf']
+        volumeMounts:
+        - name: db-standby-mnt
+          mountPath: /var/lib/postgresql/data
+          subPath: db_standby/data    
+        - name: db-standby-config-mnt
+          mountPath: /var/lib/postgresql/data/postgresql.main.conf
+          subPath: postgresql.conf
+        - name: db-standby-config-mnt
+          mountPath: /var/lib/postgresql/data/recovery.main.conf
+          subPath: recovery.conf      

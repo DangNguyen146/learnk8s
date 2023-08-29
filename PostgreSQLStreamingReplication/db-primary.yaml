@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: izdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: izdb
+  template:
+    metadata:
+      labels:
+        type: deployment
+        app: izdb
+    spec:
+      containers:
+      - image: postgres:10
+        imagePullPolicy: IfNotPresent
+        name: izdb
+        ports:
+          - containerPort: 5432
+        envFrom:
+          - configMapRef:
+              name: izdb-config
+        volumeMounts:
+          - name: izdbmnt
+            mountPath: /var/lib/postgresql/data
+            subPath: izdb/data
+      volumes:
+      - name: izdbmnt
+        persistentVolumeClaim:
+          claimName: nfs
+      - name: izdb-conf-files-config-mnt
+        configMap:
+          name: izdb-conf-files-config
+      initContainers:
+      - name: init-izdb
+        image: busybox:1.28
+        command: ['sh', '-c', ' cp /var/lib/postgresql/data/postgresql.main.conf /var/lib/postgresql/data/postgresql.conf && cp /var/lib/postgresql/data/pg_hba.main.conf /var/lib/postgresql/data/pg_hba.conf && chmod 600 /var/lib/postgresql/data/postgresql.conf && chmod 600 /var/lib/postgresql/data/pg_hba.conf']
+        volumeMounts:
+        - name: izdbmnt
+          mountPath: /var/lib/postgresql/data
+          subPath: izdb/data
+        - name: izdb-conf-files-config-mnt
+          mountPath: /var/lib/postgresql/data/postgresql.main.conf
+          subPath: postgresql.conf
+        - name: izdb-conf-files-config-mnt
+          mountPath: /var/lib/postgresql/data/pg_hba.main.conf
+          subPath: pg_hba.conf               
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+spec:
+  type: NodePort
+  selector:
+    app: db
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
+

@@ -1,0 +1,65 @@
+{
+    "dashboard": {
+        "id": null,
+        "title": "System Monitoring",
+        "panels": [
+            {
+                "title": "CPU Usage",
+                "type": "graph",
+                "datasource": "Prometheus",
+                "targets": [
+                    {
+                        "expr": "100 - (avg by(instance) (irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+                        "legendFormat": "CPU Usage"
+                    }
+                ],
+                "yaxes": [
+                    {
+                        "format": "percent"
+                    },
+                    {}
+                ]
+            },
+            {
+                "title": "Memory Available",
+                "type": "graph",
+                "datasource": "Prometheus",
+                "targets": [
+                    {
+                        "expr": "node_memory_MemAvailable_bytes",
+                        "legendFormat": "Memory Available"
+                    }
+                ],
+                "yaxes": [
+                    {
+                        "format": "bytes"
+                    },
+                    {}
+                ]
+            },
+            {
+                "title": "Open File Descriptors",
+                "type": "graph",
+                "datasource": "Prometheus",
+                "targets": [
+                    {
+                        "expr": "node_filefd_allocated",
+                        "legendFormat": "Open File Descriptors"
+                    }
+                ]
+            }
+        ],
+        "time": {
+            "from": "now-6h",
+            "to": "now"
+        },
+        "timepicker": {},
+        "timezone": "browser",
+        "editable": true,
+        "graphTooltip": 0,
+        "panelsJSON": [],
+        "version": 8
+    },
+    "folderId": null,
+    "overwrite": false
+}

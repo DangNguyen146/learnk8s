@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+  namespace: default
+  labels:
+    type: config
+    app: db
+data:
+  POSTGRES_PASSWORD: "root"
+  TIMESCALEDB_TELEMETRY: "off"
