@@ -48,4 +48,4 @@ spec:
           subPath: postgresql.conf
         - name: db-standby-config-mnt
           mountPath: /var/lib/postgresql/data/recovery.main.conf
-          subPath: recovery.conf      
+          subPath: recovery.conf              
