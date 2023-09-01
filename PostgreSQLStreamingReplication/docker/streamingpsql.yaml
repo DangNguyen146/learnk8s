@@ -1,0 +1,163 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgresql-master
+  template:
+    metadata:
+      labels:
+        app: postgresql-master
+    spec:
+      containers:
+      - name: postgresql-master
+        image: bitnami/postgresql:latest
+        ports:
+          - containerPort: 5432
+        env:
+          - name: POSTGRESQL_REPLICATION_MODE
+            value: master
+          - name: POSTGRESQL_USERNAME
+            value: my_user
+          - name: POSTGRESQL_PASSWORD
+            value: password123
+          - name: POSTGRESQL_DATABASE
+            value: my_database
+          - name: POSTGRESQL_REPLICATION_USER
+            value: my_repl_user
+          - name: POSTGRESQL_REPLICATION_PASSWORD
+            value: my_repl_password
+        resources:  # Thêm phần resources vào đây
+          limits:
+            memory: "512Mi"
+            cpu: "0.5"
+          requests:
+            memory: "256Mi"
+            cpu: "0.1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-master
+spec:
+  selector:
+    app: postgresql-master
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql-slave1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgresql-slave1
+  template:
+    metadata:
+      labels:
+        app: postgresql-slave1
+    spec:
+      containers:
+      - name: postgresql-slave1
+        image: bitnami/postgresql:latest
+        ports:
+          - containerPort: 5432
+        env:
+          - name: POSTGRESQL_REPLICATION_MODE
+            value: slave
+          - name: POSTGRESQL_USERNAME
+            value: my_user
+          - name: POSTGRESQL_PASSWORD
+            value: password123
+          - name: POSTGRESQL_MASTER_HOST
+            value: postgresql-master
+          - name: POSTGRESQL_MASTER_PORT_NUMBER
+            value: "5432"
+          - name: POSTGRESQL_REPLICATION_USER
+            value: my_repl_user
+          - name: POSTGRESQL_REPLICATION_PASSWORD
+            value: my_repl_password
+        dependsOn:
+          - postgresql-master
+        resources:  # Thêm phần resources vào đây
+          limits:
+            memory: "512Mi"
+            cpu: "0.5"
+          requests:
+            memory: "256Mi"
+            cpu: "0.1"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql-slave2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgresql-slave2
+  template:
+    metadata:
+      labels:
+        app: postgresql-slave2
+    spec:
+      containers:
+      - name: postgresql-slave2
+        image: bitnami/postgresql:latest
+        ports:
+          - containerPort: 5432
+        env:
+          - name: POSTGRESQL_REPLICATION_MODE
+            value: slave
+          - name: POSTGRESQL_USERNAME
+            value: my_user
+          - name: POSTGRESQL_PASSWORD
+            value: password123
+          - name: POSTGRESQL_MASTER_HOST
+            value: postgresql-master
+          - name: POSTGRESQL_MASTER_PORT_NUMBER
+            value: "5432"
+          - name: POSTGRESQL_REPLICATION_USER
+            value: my_repl_user
+          - name: POSTGRESQL_REPLICATION_PASSWORD
+            value: my_repl_password
+        dependsOn:
+          - postgresql-master
+        resources:  # Thêm phần resources vào đây
+          limits:
+            memory: "512Mi"
+            cpu: "0.5"
+          requests:
+            memory: "256Mi"
+            cpu: "0.1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-slave1
+spec:
+  selector:
+    app: postgresql-slave1
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-slave2
+spec:
+  selector:
+    app: postgresql-slave2
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

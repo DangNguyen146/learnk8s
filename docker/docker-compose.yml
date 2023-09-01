@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  # Dịch vụ postgresql-master
+  postgresql-master:
+    image: bitnami/postgresql:latest  # Sử dụng hình ảnh Bitnami PostgreSQL mới nhất
+    ports:
+      - "5432:5432"  # Chuyển cổng máy cục bộ 5432 sang cổng container 5432
+    environment:
+      - POSTGRESQL_REPLICATION_MODE=master  # Chế độ chủ sở hữu (không đồng bộ)
+      - POSTGRESQL_USERNAME=my_user  # Tên người dùng
+      - POSTGRESQL_PASSWORD=password123  # Mật khẩu người dùng
+      - POSTGRESQL_DATABASE=my_database  # Tên cơ sở dữ liệu
+      - POSTGRESQL_REPLICATION_USER=my_repl_user  # Tên người dùng đồng bộ
+      - POSTGRESQL_REPLICATION_PASSWORD=my_repl_password  # Mật khẩu người dùng đồng bộ
+
+  # Dịch vụ postgresql-slave1
+  postgresql-slave1:
+    image: bitnami/postgresql:latest
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRESQL_REPLICATION_MODE=slave  # Chế độ đồng bộ
+      - POSTGRESQL_USERNAME=my_user
+      - POSTGRESQL_PASSWORD=password123
+      - POSTGRESQL_MASTER_HOST=postgresql-master  # Địa chỉ host của máy chủ chủ sở hữu
+      - POSTGRESQL_MASTER_PORT_NUMBER=5432  # Số cổng của máy chủ chủ sở hữu
+      - POSTGRESQL_REPLICATION_USER=my_repl_user
+      - POSTGRESQL_REPLICATION_PASSWORD=my_repl_password
+    depends_on:
+      - postgresql-master  # Đảm bảo dịch vụ postgresql-master đã chạy trước khi khởi chạy dịch vụ này
+
+  # Dịch vụ postgresql-slave2
+  postgresql-slave2:
+    image: bitnami/postgresql:latest
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRESQL_REPLICATION_MODE=slave
+      - POSTGRESQL_USERNAME=my_user
+      - POSTGRESQL_PASSWORD=password123
+      - POSTGRESQL_MASTER_HOST=postgresql-master
+      - POSTGRESQL_MASTER_PORT_NUMBER=5432
+      - POSTGRESQL_REPLICATION_USER=my_repl_user
+      - POSTGRESQL_REPLICATION_PASSWORD=my_repl_password
+    depends_on:
+      - postgresql-master
