@@ -6,17 +6,14 @@ import (
 
 /* đếm số lượng con vật */
 func main() {
-	go func() {
-		count("sheep")
-	}()
-	go func() {
-		count("fish")
-	}()
-	fmt.Println("goruntine done")
-}
-
-func count(name string) {
-	for i := 1; i < 5; i++ {
-		fmt.Println(name, i)
+	s := 0
+	var numbers []int
+	for i := 1; i <= 99999999; i++ {
+		numbers = append(numbers, i)
 	}
+
+	for i := 0; i < 99999999; i++ {
+		s += numbers[i] * numbers[i]
+	}
+	fmt.Println(s)
 }

@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	numbers := []int{}
-	for i := 1; i <= 1000; i++ {
+	for i := 1; i <= 1000000000; i++ {
 		numbers = append(numbers, i)
 	}
 
