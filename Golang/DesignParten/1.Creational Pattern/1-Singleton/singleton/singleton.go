@@ -9,12 +9,20 @@ type singleton struct {
 	count int
 }
 
-var instance *singleton
+var (
+	instance *singleton
+	// once     sync.Once
+)
+
+func init() {
+	instance = &singleton{count: 100}
+}
 
 func GetInstance() Singleton {
-	if instance == nil {
-		instance = &singleton{count: 100}
-	}
+	// once.Do(func() {
+	// 	time.Sleep(time.Second)
+	// 	instance = &singleton{count: 100}
+	// })
 	return instance
 }
 
