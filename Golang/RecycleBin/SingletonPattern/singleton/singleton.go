@@ -1,51 +1,24 @@
 package singleton
 
-import "fmt"
+import "sync"
 
-type singleton struct {
+type Singleton struct {
 	count int
 }
-
-type sft struct {
-	count int
+type ISingleton interface {
+	GetCount() int
 }
 
-type Sft struct {
-	count int
+var instant *Singleton
+var once sync.Once
+
+func GetInstant() *Singleton {
+	once.Do(func() {
+		instant = &Singleton{count: 100}
+	})
+	return instant
 }
 
-type def struct {
-	temp int
-}
-
-type Singleton interface {
-	AddOne() int
-}
-
-var instance *singleton
-var temp *def
-
-func init() {
-	instance = &singleton{count: 100}
-	temp = &def{temp: 100}
-}
-
-func GetInstance() Singleton {
-	return instance
-}
-
-func GetTemp() Singleton {
-	return temp
-}
-
-func (s *singleton) AddOne() int {
-	s.count++
-	fmt.Println("singleton")
-
-	return s.count
-}
-
-func (s *def) AddOne() int {
-	fmt.Println("def")
-	return s.temp
+func (sing *Singleton) GetCount() int {
+	return sing.count
 }

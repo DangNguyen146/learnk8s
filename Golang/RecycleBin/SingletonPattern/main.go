@@ -1,13 +1,14 @@
 package main
 
 import (
-	"./singleton"
-
 	"fmt"
+
+	"./singleton"
 )
 
 func main() {
-	s1 := singleton.Sft{}
-
-	fmt.Print(s1)
+	instance := singleton.GetInstant()
+	instance2 := singleton.GetInstant()
+	fmt.Printf("%v\n", instance.GetCount())
+	fmt.Printf("%v", instance2.GetCount())
 }
