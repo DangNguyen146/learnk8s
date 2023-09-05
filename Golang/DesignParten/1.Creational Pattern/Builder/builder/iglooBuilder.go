@@ -6,7 +6,7 @@ type iglooBuilder struct {
 	floor      int
 }
 
-func newIgBuilder() *iglooBuilder {
+func NewIglooBuilder() *iglooBuilder {
 	return &iglooBuilder{}
 }
 

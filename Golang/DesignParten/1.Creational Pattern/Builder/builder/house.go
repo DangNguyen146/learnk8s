@@ -7,6 +7,11 @@ type House struct {
 	doorType   string
 	floor      int
 }
+type Ihourse interface {
+	GetWindowType()
+	GetDoorType()
+	GetNumFloor()
+}
 
 /* GetWindownType is getter */
 func (h *House) GetWindowType() string {
