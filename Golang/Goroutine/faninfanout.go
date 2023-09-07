@@ -44,11 +44,11 @@ func fanout(x <-chan int) <-chan int {
 func fanin(inputChan ...<-chan int) <-chan int {
 	out := make(chan int)
 	for _, input := range inputChan {
-		go func(ch <-chan int) {
-			for x := range ch {
+		go func() {
+			for x := range input {
 				out <- x
 			}
-		}(input)
+		}()
 	}
 	return out
 }
