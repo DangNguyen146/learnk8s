@@ -1,24 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgresql-master
+  name: postgresql-slave
   namespace: webapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgresql-master
+      app: postgresql-slave
   template:
     metadata:
       labels:
-        app: postgresql-master
+        app: postgresql-slave
     spec:
-      volumes:
-      - name: postgresql-master-data
-        persistentVolumeClaim:
-          claimName: postgresql-master-data
       containers:
-      - name: postgresql-master
+      - name: postgresql-slave
         image: bitnami/postgresql
         resources:
           limits:
@@ -28,17 +24,27 @@ spec:
         - containerPort: 5432
         env:
         - name: POSTGRESQL_REPLICATION_MODE
-          value: master
+          value: slave
         - name: POSTGRESQL_REPLICATION_USER
           value: repl_user
         - name: POSTGRESQL_REPLICATION_PASSWORD
           value: repl_password
-        - name: POSTGRESQL_USERNAME
-          value: my_user
+        - name: POSTGRESQL_MASTER_HOST
+          value: "0.0.0.0"
         - name: POSTGRESQL_PASSWORD
           value: my_password
-        - name: POSTGRESQL_DATABASE
-          value: my_database
-        volumeMounts:
-        - name: postgresql-master-data
-          mountPath: "/data"
+        - name: POSTGRESQL_MASTER_PORT_NUMBER
+          value: "5432"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-service
+  namespace: webapp
+spec:
+  selector:
+    app: postgresql-master
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
