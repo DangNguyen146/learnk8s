@@ -1,6 +1,6 @@
 # Builder
 Khi nào sử dụng: Có 3 lý do
-- Lý do 1: Khi chúng ta muốn khởi tạo 1 đối tượng cửa 1 struct, nhưng struct đó có rất nhiều thuộc tính và khi chúng ta khởi tạo 1 cách bình thường thì chúng ta phải nắm được kiểu dữ liệu của thuộc tính đó, thứ tự cửa kiểu dữ liệu đó và cách chúng ta truyền vào cho chính xác
+- Lý do 1: Khi chúng ta muốn khởi tạo 1 đối tượng cửa 1 struct, nhưng struct đó có rất nhiều thuộc tính và khi chúng ta khởi tạo 1 cách bình thường thì chúng ta phải nắm được kiểu dữ liệu của thuộc tính đó, thứ tự của kiểu dữ liệu đó và cách chúng ta truyền vào cho chính xác
     * Ví dụ: Chúng ta có một struct là account của ngân hàng, thì trong tài khoản ngân hàng có rất nhiều thuộc tính như: tên tài khoản, id tài khoản, địa chỉ, giới tính, số tiền, etc. Như vậy khi chúng ta sử dụng phải gọi một hàm khởi tạo với rất nhiều thuộc tính và thứ tự phải đảm bảo đúng theo sắp xếp chúng ta truyền vào. Trong trường hợp xấu nhất, chúng ta có những thuộc tính có cùng kiểu dữ liệu với nhau ví dụ như số tuổi và số tiền trong tài khoản, đều là kiểu số nguyên. Tuy nhiên khi chúng ta truyền vào khởi tạo thì sai vị trí đó thì nó làm cho logic chương trình sai hoàn toàn và có thể gây thiệt hại rất lớn.
 - Lý do 2: Khi chúng ta có 1 cái struct tuy nhiên chúng ta muốn tạo ra đối tượng nó cụ thể hơn trong struct. Ví dụ như: Chúng ta có struct là ngôi nhà, tuy nhiên các đôi tượng chúng ta có thể là
     * đó là 1 ngôi nhà bình thường sẽ có các thuộc tính, thông số, nội thất --> là những tiêu chuẩn bình thường
@@ -9,7 +9,7 @@ Khi nào sử dụng: Có 3 lý do
     * Giả sử struct chúng ta có 4 thuộc tính thì chúng ta phải khởi tạo đối tượng đầy dử 4 thuộc tính chứ ko thể nào chúng ta khởi tạo đối tượng có 3 thuộc tính
 
 ## Thành phần
-- Client --> Đối tượng
+- Product --> Đối tượng chúng ta muốn tạo ra
 - Builder interface --> Chứa các phương thức gán giá trị cho cái thuộc tính product này
 - Concrete builder --> Tạo ra đối tượng cụ thể cho client
     + concrete builder 1
@@ -17,7 +17,7 @@ Khi nào sử dụng: Có 3 lý do
 - Directer --> Liên kết giữa Builder interface và concrete builder
 
 ### Ví dụ:
-- CLient --> Ngôi nhà
+- Product --> Ngôi nhà
 - Builder interface 
 - 2 Concrete builder
     + normal house
