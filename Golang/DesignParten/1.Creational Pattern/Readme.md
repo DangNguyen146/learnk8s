@@ -3,5 +3,5 @@ CDP là các mẫu thiết kế đối ứng với các cơ chế tạo đối t
 Các mẫu CDP hiện có là:
 * Singleton [here](./1-Singleton/Readme.Md)
 * Builder [here](./2-Builder/Readme.md)
-* Abstract Factory [here] (./3-AbstractFactory/Readme.md)
+* Abstract Factory [here](./3-AbstractFactory/Readme.md)
 * Prototype
