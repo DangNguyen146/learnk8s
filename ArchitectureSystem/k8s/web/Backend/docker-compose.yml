@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  spacezbe:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      - DJANGO_DB_NAME=spacedbv3
+      - DJANGO_SU_NAME=dangnk
+      - DJANGO_SU_EMAIL=dangnk@my.company
+      - DJANGO_SU_PASSWORD=dangnk
+    command: 
+      - sh
+      - -c
+      - |
+        python manage.py makemigrations
+        python manage.py migrate        
+        python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
