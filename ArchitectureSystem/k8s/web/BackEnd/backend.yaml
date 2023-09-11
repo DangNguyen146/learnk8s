@@ -61,7 +61,7 @@ spec:
             - containerPort: 80
           volumeMounts:
             - name: nginx-log
-              mountPath: /dev/nginx
+              mountPath: /data/nginx
           resources:
             limits:
               memory: "256Mi"
