@@ -7,4 +7,5 @@ spec:
   selector:
     app: postgre-master
   ports:
-  - port: 5432
+  - protocol: TCP
+    port: 5432

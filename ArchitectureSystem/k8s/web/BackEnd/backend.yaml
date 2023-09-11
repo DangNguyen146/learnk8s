@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: django-config
+  namespace: webapp
+data:
+  DJANGO_DB_NAME: postgres
+  DJANGO_SU_NAME: postgres
+  DJANGO_DB_USER: postgres
+  DJANGO_SU_EMAIL: dangnk@my.company
+  DJANGO_SU_PASSWORD: postgres
+  DJANGO_DB_PASSWORD: postgres
+  DJANGO_DB_HOST: postgres-master-service.webapp
+  DJANGO_DB_PORT: "5432"  # Specify the correct PostgreSQL port number
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app
+  namespace: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: django-app
+  template:
+    metadata:
+      labels:
+        app: django-app
+    spec:    
+      containers:
+        - name: spacezbe
+          image: dangnguyensonia/spacedjangov3:v16
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: django-config
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "0.5"
+            requests:
+              memory: "128Mi"
+              cpu: "0.25"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-service
+  namespace: webapp
+spec:
+  selector:
+    app: django-app
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: LoadBalancer
+---
