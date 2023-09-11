@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-master-service
+  namespace: webapp
+spec:
+  selector:
+    app: postgre-master
+  ports:
+  - port: 5432
