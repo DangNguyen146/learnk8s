@@ -28,18 +28,7 @@ spec:
     metadata:
       labels:
         app: django-app
-    spec:
-      initContainers:
-      - name: collectstatic
-        image: dangnguyensonia/spacedjangov3:v16
-        command: ["python", "manage.py", "collectstatic", "--no-input"]
-        envFrom:
-          - configMapRef:
-              name: django-config
-        resources:
-          limits:
-            memory: "256Mi"
-            cpu: "0.5"
+    spec:    
       containers:
         - name: spacezbe
           image: dangnguyensonia/spacedjangov3:v16
@@ -55,20 +44,6 @@ spec:
             requests:
               memory: "128Mi"
               cpu: "0.25"
-        - name: nginx
-          image: nginx:latest
-          ports:
-            - containerPort: 80
-          volumeMounts:
-            - name: nginx-log
-              mountPath: /data/nginx
-          resources:
-            limits:
-              memory: "256Mi"
-              cpu: "0.5"
-      volumes:
-        - name: nginx-log
-          emptyDir: {}
 
 ---
 apiVersion: v1
