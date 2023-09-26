@@ -15,5 +15,6 @@
     `kubectl -n kubernetes-dashboard create token admin-user`
 
 4. Run `kubectl proxy`.
-5. Visit http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+5. Visit http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/
+https:kubernetes-dashboard:/proxy/
 6. Paste the token into the login screen and you can then sign in to the dashboard.

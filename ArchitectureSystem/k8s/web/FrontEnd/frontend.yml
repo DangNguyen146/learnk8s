@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: reactjs-config
+  namespace: webapp
+data:
+  REACT_APP_urlImagApi: "http://127.0.0.1:8000"
+  REACT_APP_client_id: "AG0MUNfCmgYPQ8hMQKP65GEvgbZN1X06d1OJaV76"
+  REACT_APP_client_secret: "nwItnjfrW7nbSVCVVazyfPaRkAdNHHT9MWvxrgtINDt32cTMMbN5RWmKDhFhTyDvODZoVEEZU9mFIOkdarchNOVNwgLXX77nLS8cqfRQs1Jl8WO0AM9XJL53Hw94XdCi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactjs-app
+  namespace: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactjs-app
+  template:
+    metadata:
+      labels:
+        app: reactjs-app    
+    spec:
+      containers:
+      - name: reactjs-app
+        image: dangnguyensonia/spacefe_reactjs:v9
+        resources:
+          limits:
+            memory: "856Mi"
+            cpu: "5000m"
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: reactjs-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactjs-service
+  namespace: webapp
+spec:
+  selector:
+    app: reactjs-app
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
+  type: NodePort
+
+

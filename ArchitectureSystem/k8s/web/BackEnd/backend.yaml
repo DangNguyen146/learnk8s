@@ -28,10 +28,10 @@ spec:
     metadata:
       labels:
         app: django-app
-    spec:    
+    spec:
       containers:
         - name: spacezbe
-          image: dangnguyensonia/spacedjangov3:v16
+          image: dangnguyensonia/spacedjangov3:v35
           ports:
             - containerPort: 8000
           envFrom:
