@@ -1,0 +1,21 @@
+# Đặt log_format ở đây
+log_format custom '$remote_addr - $remote_user [$time_local] '
+                       '"$request" $status $body_bytes_sent '
+                       '"$http_referer" "$http_user_agent" "$gzip_ratio"';
+
+server {
+	listen 80;
+	listen [::]:80;
+		
+	root /var/www/dangnk.test/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name dangnk.test www.dangnk.test;
+
+	access_log  /logs/dangnk.test/nginx/access.log custom;    
+	error_log /logs/dangnk.test/nginx/error_log.log error;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}

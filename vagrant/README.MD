@@ -16,3 +16,4 @@ Paste script after
     cp /home/ubuntu1/.ssh/authorized_keys ~/.ssh/
     ssh ubuntu2@192.168.144.11
     cp /home/ubuntu2/.ssh/authorized_keys ~/.ssh/
+    echo "" > ~/.ssh/known_hosts
